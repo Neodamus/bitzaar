@@ -1,0 +1,36 @@
+<?php 
+	$method = $this->getMethod();
+	
+	if ($method != '') {
+		switch ($method) {
+			case 'addAuthor':
+				$this->newAuthor();
+				echo 'Author added';
+				break;
+			case 'addFile':
+				$this->addBook($this->getFile());
+				break;	
+		}				
+	}
+	
+?>
+
+<div style="margin-bottom: 100px">
+<form method="post">
+	<input name="action" value="addAuthor" type="hidden" />
+	<input name="username" value="test" />
+    <input type="submit" value="Add Author"/>
+</form>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+<div class="input-box">
+	<input name="action" value="addFile" type="hidden" />
+    <input name="MAX_FILE_SIZE" type="hidden" value="2000000" />
+    <input name="attachment" class="input-text" type="file" />
+    <input type="submit" value="Submit"> 
+</div>
+</form>
+
+<br/><br/>
+

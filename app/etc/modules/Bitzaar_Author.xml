@@ -1,0 +1,10 @@
+<?xml version="1.0"?> 
+
+<config>
+	<modules>
+		<Bitzaar_Author>
+			<active>true</active>
+			<codePool>local</codePool>			
+		</Bitzaar_Author>
+	</modules>
+</config>

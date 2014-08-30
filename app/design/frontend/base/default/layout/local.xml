@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	
+	<!-- adds author link to customer account nav bar -->
+	<customer_account>
+		<reference name="left">
+			<reference name="customer_account_navigation">
+				<action method="addLink" translate="label" module="customer">
+					<name>author</name>
+					<path>author</path>
+					<label>Author</label>
+				</action>		
+			</reference>	
+		</reference>
+	</customer_account>
+	
+	<!-- author page -->	
+	<author_index_index translate="label">
+		<label>author</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="author/list" name="author" template="bitzaar/author.phtml"/>
+        </reference> 
+	</author_index_index>
+	
+</layout>

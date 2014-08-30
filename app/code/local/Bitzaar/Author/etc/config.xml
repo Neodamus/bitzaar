@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Bitzaar_Author>
+			<version>0.0.1</version>			
+		</Bitzaar_Author>
+	</modules>
+	
+	<global>
+	
+		<blocks>
+			<author>
+				<class>Bitzaar_Author_Block</class>
+			</author>
+		</blocks>
+		
+		<models>
+		
+			<author>
+				<class>Bitzaar_Author_Model</class>
+				<resourceModel>author_resource</resourceModel>
+			</author>		
+			
+			<author_resource>
+				<class>Bitzaar_Author_Model_Resource</class>
+				<entities>
+					<author>
+						<table>author</table>
+					</author>
+				</entities>
+			</author_resource>
+			
+		</models>	
+		
+		<resources>
+			<author_setup>
+				<setup>
+					<module>Bitzaar_Author</module>
+				</setup>
+			</author_setup>
+		</resources>
+		
+	</global>
+	
+	<frontend>	
+		<routers>
+		
+			<author>
+				<use>standard</use>
+				<args>
+					<module>Bitzaar_Author</module>
+					<frontName>author</frontName>
+				</args>
+			</author>			
+			
+            <downloadable>	
+                <args>
+					<modules>
+                    	<author before="Mage_Downloadable">Bitzaar_Author</author>
+					</modules>
+                </args>
+            </downloadable>
+			
+		</routers>	
+		
+		<events>
+			<checkout_onepage_controller_success_action>        
+				<observers>
+					<author>
+						<class>author/observer</class>
+						<method>balance</method>
+					</author>
+        		</observers>			
+			</checkout_onepage_controller_success_action>
+		</events>
+		
+	</frontend>
+	
+</config>
